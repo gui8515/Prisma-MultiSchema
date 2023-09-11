@@ -4,12 +4,14 @@ import * as path from 'path'
 import { colorLogs } from './utility/colorLogs';
 import { errorLogs } from './logger';
 import { exit } from 'node:process';
+import { generatorHandler } from '@prisma/generator-helper';
+import type { GeneratorOptions } from '@prisma/generator-helper';
 import { getAllFiles, processSubschemas } from './processor';
 
 function getAppRootDir () { return process.cwd(); }
 
 export var appRoot=getAppRootDir();
-export var allSchemaFolder='/prisma/subschemas';
+export var allSchemaFolder=options.generator.allSchemaFolder;
 export var subschemasPath=path.join(appRoot,allSchemaFolder);
 
 /**
